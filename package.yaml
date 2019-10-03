@@ -1,0 +1,57 @@
+name:                write-yourself-git
+version:             0.1.0.0
+github:              "nmjr-311/write-yourself-git"
+license:             BSD3
+author:              "nmjr-311"
+maintainer:          "nmjr31@gmail.com"
+copyright:           "2019 nmjr-311"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/nmjr-311/write-yourself-git#readme>
+
+default-extensions:
+- LambdaCase
+
+dependencies:
+- base >= 4.7 && < 5
+- optparse-applicative
+- directory
+- mtl
+- ini
+- text
+- unordered-containers
+
+library:
+  source-dirs: src
+
+executables:
+  write-yourself-git-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - write-yourself-git
+
+tests:
+  write-yourself-git-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - write-yourself-git
