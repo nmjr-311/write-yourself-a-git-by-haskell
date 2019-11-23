@@ -21,15 +21,13 @@ description:         Please see the README on GitHub at <https://github.com/nmjr
 
 default-extensions:
 - LambdaCase
+- NoImplicitPrelude
 
 dependencies:
 - base >= 4.7 && < 5
-- optparse-applicative
-- directory
-- mtl
+- rio
 - ini
-- text
-- unordered-containers
+- optparse-applicative
 
 library:
   source-dirs: src

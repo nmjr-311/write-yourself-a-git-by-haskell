@@ -1,13 +1,13 @@
+{-# LANGUAGE DataKinds      #-}
+{-# LANGUAGE GADTs          #-}
 {-# LANGUAGE KindSignatures #-}
-{-# LANGUAGE GADTs #-}
-{-# LANGUAGE DataKinds #-}
 
 module GitCommands where
 
-import Data.Monoid
-import Data.Char
-import Text.Read
-import Options.Applicative
+import           Data.Monoid
+import           Options.Applicative
+import           RIO
+
 
 data Command where
   Add :: Command
@@ -29,7 +29,6 @@ data Command where
 parseInit :: Parser Command
 parseInit = Init <$> parsePath
   where
-    parsePath :: Parser String
     parsePath = strArgument $ mconcat
       [ help "Where to create the repository."
       , metavar "directory"
